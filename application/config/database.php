@@ -67,9 +67,9 @@ $active_record = TRUE;
 // 
 // $db['erph']['hostname'] = '170.165.1.8';
 $db['erph']['hostname'] = 'localhost';
-$db['erph']['username'] = 'mariydh';
-$db['erph']['password'] = 'dawaaun';
-$db['erph']['database'] = 'dberph';
+$db['erph']['username'] = 'postgres';
+$db['erph']['password'] = 'dbadmin';
+$db['erph']['database'] = 'erp';
 $db['erph']['dbdriver'] = 'postgre';
 $db['erph']['dbprefix'] = '';
 $db['erph']['pconnect'] = TRUE;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>.:: Enterprise Resource Planning for Hospital ::.</title>
+<title>.:: Enterprise Resource Planning ::.</title>
 <link rel="shortcut icon" href="<?php echo base_url('assets/favicon.gif') ?>"> 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/extjs/resources/css/ext-all.css'); ?>">
 <!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('assets/css/screen.css'); ?>"> -->

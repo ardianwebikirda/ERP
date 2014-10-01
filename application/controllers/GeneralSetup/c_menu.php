@@ -2,7 +2,7 @@
 class C_menu extends CI_Controller
 {
   public function __construct(){
-          parent::__construct();
+    parent::__construct();
     $this->load->library('excel');
     $this->load->model('GeneralSetup/m_menu');
 
@@ -111,11 +111,17 @@ class C_menu extends CI_Controller
 
     $menu_sama  = $this->m_menu->cekMenu($name);
     $id_sama    = $this->m_menu->saveConfirm($id);
-    if($id == '' || $id == NULL){ $success = 1;
-    } else if($name == '' || $name == NULL){ $success = 2;
+    if($id == '' || $id == NULL){ 
+      $success = 1;
+    } else if($name == '' || $name == NULL){ 
+      $success = 2;
     } else if(($menu_sama+$id_sama) == 0){ 
       $this->m_menu->saveMenu($id, $name, $parent, $icon, $isactive, $description);
-      if($this->m_menu->saveConfirm($id) == 0){ $success = 3; } else { $success = 0; }
+      if($this->m_menu->saveConfirm($id) == 0){ 
+        $success = 3; 
+      } else { 
+        $success = 0; 
+      }
     } else { $success = 4; }
         $data['total'] = $success;
         $data['success'] = TRUE;
@@ -134,7 +140,8 @@ class C_menu extends CI_Controller
     $description  = ($this->input->post('description', TRUE) ? $this->input->post('description', TRUE) : '');
     // var_dump($parent);
     // exit();
-    if($name == '' || $name == NULL){ $success = 1;
+    if($name == '' || $name == NULL){ 
+      $success = 1;
     } else if($this->m_menu->cekMenuID($name, $id) == 0){ 
       $this->m_menu->updateMenu($id, $name, $parent, $icon, $isactive, $description);
       $success = 0;

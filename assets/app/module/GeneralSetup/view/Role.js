@@ -1,6 +1,7 @@
 Ext.define('ERPh.module.GeneralSetup.view.Role', {
     extend   :  'Ext.panel.Panel',
     title    : 'Role',
+    iconCls  : 'icon-group',
     alias    : 'widget.Role',
     id       : 'Role',
     layout   : 'fit',     

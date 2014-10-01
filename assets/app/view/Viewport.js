@@ -12,39 +12,25 @@ Ext.define('ERPh.view.panel.Dashboard', {
             },
             xtype	: 'container',
             border	: false,
-            frame	: false,
+            frame	: true,
             items	:[
                 {
                     xtype		: 'form',
                     frame		: false,
+                    layout      : 'fit',
                     border		: false,
                     hideHeader	: true,
                     bodyStyle	: {
                     	background:' #DDDDFF no-repeat center center'
                     },
                     padding		:'3px',
-                    html		:'<div id="welcome">Welcome to ERP for Hospital</div>'
+                    html		:'<div id="welcome">Welcome to Vinoti Human Resource Informastion System</div>'
                 }
             ]
         });
         a.callParent(arguments);
     }
 });
-
-            // items   :[
-            //     {
-            //         xtype       : 'form',
-            //         frame       : false,
-            //         border      : false,
-            //         hideHeader  : true,
-            //         bodyStyle   : {
-            //             background:' #DDDDFF no-repeat center center'
-            //         },
-            //         padding     : '3px',
-            //         html        : '<div id="welcome">SELAMAT DATANG DI APLIKASI HUMAN RESOURCE INFORMATION SYSTEM</div>'
-            //     }
-            // ]
-
 
 Ext.define('ERPh.view.Tab',{
     extend			: 'Ext.tab.Panel',
@@ -133,7 +119,7 @@ Ext.define('ERPh.view.Viewport',
 					xtype 	: 'panel',
 					layout 	: 'fit',
 					region	: 'north',
-					title 	: 'Enterprise Resource Planning for Hospital',
+					title 	: 'HUMAN RESOURCE INFORMATION SYSTEM',
 					id		: 'appHeader'
 				},
 				{
@@ -159,7 +145,7 @@ Ext.define('ERPh.view.Viewport',
                         },
                         '-',
                         {
-                            text        : 'Enterprise Resource Planning for Hospital',
+                            text        : 'Vinoti Enterprise Resource Planning',
                             disabled    : true
                         },
                         '-',

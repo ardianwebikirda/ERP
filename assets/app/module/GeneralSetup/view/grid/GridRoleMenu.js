@@ -4,6 +4,7 @@ Ext.define('ERPh.module.GeneralSetup.view.grid.GridRoleMenu', {
     title    : 'Grid Role Menu',
     alias    : 'widget.gridrolemenu',
     id       : 'gridrolemenu', 
+    margins     :'3px 3px 3px 3px',
     columns  : [
         {
             text    : 'No',

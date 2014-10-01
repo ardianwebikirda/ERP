@@ -1,6 +1,7 @@
 Ext.define('ERPh.module.GeneralSetup.view.Users', {
     extend   :  'Ext.panel.Panel',
     title    : 'Users',
+    iconCls  : 'icon-user',
     alias    : 'widget.Users',
     id       : 'Users',
     layout   : 'fit',     

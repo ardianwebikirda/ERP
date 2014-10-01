@@ -1,0 +1,18 @@
+#========================
+#SEBELUM PERUBAHAN
+#========================
+Options +FollowSymlinks
+RewriteEngine on
+RewriteBase /ERP
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+#========================
+#SESUDAH PERUBAHAN
+#========================
+#RewriteEngine on
+#RewriteBase /ERP
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d 
+#RewriteRule ^(.*)$ index.php?/$1 [L]

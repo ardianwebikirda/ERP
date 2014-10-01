@@ -1,6 +1,7 @@
 Ext.define('ERPh.module.GeneralSetup.view.Menu', {
     extend   :  'Ext.panel.Panel',
     title    : 'Menu',
+    iconCls  : 'icon-application_osx_link',
     alias    : 'widget.Menu',
     id       : 'Menu',
     layout   : 'fit',     

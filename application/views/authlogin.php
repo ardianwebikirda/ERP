@@ -19,8 +19,8 @@
     <body>
         <div class="container">
 		<header>
-				<h1><strong>.:: HOSPITAL NAME COMPANY ::.</strong></h1>
-				<h2><b>Enterprise Resource Planning for Hospital</b></h2>
+				<h1><strong>.:: VINOTI LIVING GROUP ::.</strong></h1>
+				<h2><b>Human Resource Information System</b></h2>
 		</header>
 			<section class="main">
 			   <?php echo validation_errors(); ?>

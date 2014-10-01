@@ -99,8 +99,8 @@ Ext.define('ERPh.controller.dashboard',{
                 tab.setActiveTab(menu);
             });
         }else{
-            me.getStore(store).load();
-            tab.setActiveTab(selector);
+            me.getStore(store).reload();
+            tab.setActiveTab(tab);
         }
     }
 });

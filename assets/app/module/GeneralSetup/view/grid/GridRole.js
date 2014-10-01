@@ -4,6 +4,7 @@ Ext.define('ERPh.module.GeneralSetup.view.grid.GridRole', {
     title    : 'Grid Role',
     alias    : 'widget.gridrole',
     id       : 'gridrole', 
+    margins     :'3px 3px 3px 3px',
     selModel: {
         selType     : 'checkboxmodel',
         mode        : 'MULTI',

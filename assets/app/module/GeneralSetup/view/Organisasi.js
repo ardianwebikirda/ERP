@@ -1,6 +1,7 @@
 Ext.define('ERPh.module.GeneralSetup.view.Organisasi', {
     extend   :  'Ext.panel.Panel',
     title    : 'Organisasi',
+    iconCls  : 'icon-house_link',
     alias    : 'widget.Organisasi',
     id       : 'Organisasi',
     layout   : 'fit',     
