@@ -97,7 +97,7 @@ class C_department extends CI_Controller{
   		foreach ($result->result() as $key => $value) {
   			$data['data'][]= array(
   				'namedepartment'	=> $value->name,
-  				'id' 			=> $value->id_department
+  				'id' 				=> $value->id_department
   			);
   		}
   		echo json_encode($data);

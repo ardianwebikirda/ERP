@@ -1,16 +1,18 @@
-Ext.define('ERPh.module.MasterHR.store.Department2',{
+Ext.define('ERPh.module.MasterHR.store.ViewDepartment', {
     extend      : 'Ext.data.Store',
-    model       : 'ERPh.module.MasterHR.model.Department2',
-    requires    : ['ERPh.module.MasterHR.model.Department2'],
+    model       : 'ERPh.module.MasterHR.model.ViewDepartment',
+    requires    : [
+        'ERPh.module.MasterHR.model.ViewDepartment'
+    ],
     autoLoad    : true,
     autoSync    : false,
     root        : {
-        expanded        : false
+        expanded    : false
     },
     proxy       : {
-        type    : 'ajax',
-        api     : {
-        read    : BASE_URL + 'MasterHR/c_company/getDepartment2'
+        type            : 'ajax',
+        api             : {
+            read    : BASE_URL + 'MasterHR/c_department/viewDepartment'
         },
         actionMethods   : {
             read    : 'POST'
@@ -18,8 +20,7 @@ Ext.define('ERPh.module.MasterHR.store.Department2',{
         reader          : {
             type            : 'json',
             root            : 'data',
-            successProperty : 'success',
-            totalProperty   : 'total'
+            successProperty : 'success'
         },
         writer          : {
             type            : 'json',

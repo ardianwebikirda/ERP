@@ -45,9 +45,9 @@ Ext.define('ERPh.module.MasterHR.controller.Company', {
     reloadStore: function(){
         var me = this;
         me.getStore('ERPh.module.MasterHR.store.Company').reload();
-        me.getStore('ERPh.module.MasterHR.store.Department2').reload();
+        // me.getStore('ERPh.module.MasterHR.store.Department2').reload();
     },
-    groupCompany: function(me, record, item, index, e, eOpts) {//Edit
+    groupCompany: function(grid, record, item, index, e, eOpts) {//Edit
         var form = Ext.getCmp('formcompany');
         var grid = Ext.getCmp('griddepartment2');
         form.getForm().setValues(record.data);
@@ -57,8 +57,6 @@ Ext.define('ERPh.module.MasterHR.controller.Company', {
         var updateButton = form.down('button[action=update]');
         updateButton.setDisabled(false);
 
-        // var addButton = grid.down('button[action=add]');
-        // addButton.setDisabled(false);
 
         var deleteButton = grid.down('button[action=delete]');
         deleteButton.setDisabled(false);
@@ -69,14 +67,12 @@ Ext.define('ERPh.module.MasterHR.controller.Company', {
             method          : 'POST',
             params          : {post : Ext.encode(id)},
             success         : function(response){
-                var data    = Ext.JSON.decode(response.responseText);
-                var storeComp = Ext.getStore('ERPh.module.MasterHR.store.Department2');
+                var data        = Ext.JSON.decode(response.responseText);
+                var storeComp   = Ext.getStore('ERPh.module.MasterHR.store.Department2');
                 storeComp.removeAll();
                 storeComp.add(data.data);
             }
         });
-
-        // console.log(id);
     },
 
     del: function(gridPanel, selected){
@@ -270,7 +266,6 @@ Ext.define('ERPh.module.MasterHR.controller.Company', {
         var form    = win.down('form').getForm();
         var id_dept = form.findField('name').getValue();
         var id_comp = form.findField('id_company').getValue();
-        var isactive = form.findField('isactive').getValue();
 
         console.log(id_comp);
 
@@ -279,8 +274,7 @@ Ext.define('ERPh.module.MasterHR.controller.Company', {
             method  : 'POST',
             params  : {
                 id_dept     : id_dept,
-                id_comp     : id_comp,
-                isactive    : isactive
+                id_comp     : id_comp
             },
             success : function(response){
                 var data    = Ext.JSON.decode(response.responseText);

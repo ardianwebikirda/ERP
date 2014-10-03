@@ -67,6 +67,13 @@ class M_company extends CI_Model{
         return $db->select('COUNT(*) AS id', FALSE)->from('sys_company')->where('name',$name)->get()->row()->id;
     }
 
+    public function cekDept($id_dept, $id_comp){
+        $this->setConnection('erph');
+        $db = $this->getConnection();
+
+        return $db->select('COUNT(*) AS id', FALSE)->from('trs_compdep')->where('id_department',$id_dept)->where('id_company',$id_comp)->get()->row()->id;
+    }
+
     public function cekCompanyID($name, $id){
         return $this->db->select('COUNT(*) AS id', FALSE)->from('sys_company')->where('name',$name)->where('id_company !=', $id)->get()->row()->id;
     }
@@ -103,6 +110,20 @@ class M_company extends CI_Model{
         $db->insert('sys_company');
     }
 
+    public function saveTrscomp($id_comp, $id_dept, $uuid){
+        $this->setConnection('erph');
+        $db = $this->getConnection();
+
+        $db->set('id_compdep', $uuid);
+        $db->set('id_company', $id_comp);
+        $db->set('id_department', $id_dept);
+        $db->set('createdby', $this->session->userdata('id'));
+        $db->set('created', date('Y-m-d H:i:s'));
+        $db->set('updatedby', $this->session->userdata('id'));
+        $db->set('updated', date('Y-m-d H:i:s'));
+        $db->insert('trs_compdep');
+    }
+
     public function updateCompany($name, $code, $id){
         $this->setConnection('erph');
         $db = $this->getConnection();
@@ -123,5 +144,26 @@ class M_company extends CI_Model{
 
         $db->where('id_company',$id);
         $db->delete('sys_company');
+    }
+
+    public function getDepartment2($id){
+        $this->setConnection('erph');
+        $db = $this->getConnection();
+
+        $db->select("tcp.id_compdep AS id, tcp.id_company AS id_company, sc.code AS code_company, sc.name AS name_company,
+        tcp.id_department AS id_department, sd.code AS code_department, sd.name AS name_department", FALSE);
+        $db->from('trs_compdep tcp');
+        $db->join('sys_company sc','tcp.id_company=sc.id_company');
+        $db->join('sys_department sd','tcp.id_department=sd.id_department');
+        $db->where('tcp.id_company',$id);
+        $query = $db->get();
+        return $query;
+    }
+
+    public function cekCompDep($id){
+        $this->setConnection('erph');
+        $db = $this->getConnection();
+
+        return $db->select("COUNT(*) AS id",FALSE)->from('trs_compdep')->where('id_company',$id)->get()->row()->id;
     }
 }

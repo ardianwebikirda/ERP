@@ -45,7 +45,6 @@ class M_department extends CI_Model{
         $db->or_like('LOWER(id_department)',strtolower($this->input->get('query')),'after');
         $db->order_by('name');
         $query = $db->get();
-        // echo $db->last_query();
         return $query;
     }
 

@@ -1,4 +1,4 @@
-Ext.define('HRIS.module.MasterHR.model.Department2',{
+Ext.define('ERPh.module.MasterHR.model.Department2',{
 	extend 	: 'Ext.data.Model',
 	fields 	: [
 		{name : 'id', type : 'string'},

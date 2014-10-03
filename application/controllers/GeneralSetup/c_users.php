@@ -57,7 +57,7 @@ class C_users extends CI_Controller
           'name'          => $value->name              
           );
       }    
-  }
+    }
         // $data['total']   = $count;
         $data['success'] = true;
         echo json_encode($data);

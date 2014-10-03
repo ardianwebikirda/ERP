@@ -65,8 +65,8 @@ Ext.define('ERPh.module.GeneralSetup.controller.Users', {
             method          : 'POST',
             params          : {post : Ext.encode(id)},
             success         : function(response){
-                var data    = Ext.JSON.decode(response.responseText);
-                var storeComp = Ext.getStore('ERPh.module.GeneralSetup.store.UsersOrganisasi');
+                var data        = Ext.JSON.decode(response.responseText);
+                var storeComp   = Ext.getStore('ERPh.module.GeneralSetup.store.UsersOrganisasi');
                 storeComp.removeAll();
                 storeComp.add(data.data);
             }
