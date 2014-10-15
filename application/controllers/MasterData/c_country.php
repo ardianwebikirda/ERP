@@ -106,4 +106,15 @@ class C_country extends CI_Controller{
   		}
   		echo json_encode($data);
   	}
+
+  	public function filterCountry(){
+  		$result = $this->m_country->getViewCountry();
+  		foreach ($result->result() as $key => $value) {
+  			$data['data'][]= array(
+  				'namecountry'	=> $value->name,
+  				'id' 			=> $value->id_country
+  			);
+  		}
+  		echo json_encode($data);
+  	}
 }

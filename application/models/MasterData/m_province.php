@@ -126,4 +126,17 @@ class M_province extends CI_Model{
         $db->where('id_province',$id);
         $db->delete('sys_province');
     }
+
+     public function filterProvince($id){
+        // var_dump($id.'hai');
+        // exit();
+        $this->setConnection('erph');
+        $db = $this->getConnection();
+        $db->select("id_province AS id, CAST(id_country AS varchar(40)) AS id_country, code AS code, name AS name", FALSE);
+        $db->from('sys_province');
+        $db->where('id_country',$id);
+        $query = $db->get();
+        return $query;
+    }
+
 }

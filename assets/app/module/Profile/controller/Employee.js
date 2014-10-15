@@ -507,11 +507,26 @@ Ext.define('ERPh.module.Profile.controller.Employee',{
         comboProvince.setValue('');
         comboProvince.store.removeAll();
 
-        var comboCountry    = Ext.ComponentQuery.query('formemployee #id_country')[0];
-        var countryId       = comboCountry.getValue();
-        comboProvince.store.load({
-            params  : { countryId : countryId }
-        });
+
+        // var comboCountry    = Ext.ComponentQuery.query('formemployee #id_country')[0];
+        // var countryId       = comboCountry.getValue();
+        // console.log(countryId);
+        // comboProvince.store.load({
+        //     params  : { countryId : countryId }
+        // });
+        var product     = records[0].data.id;
+        var form        = Ext.getCmp('formemployee').getForm();
+        var countryId   = form.findField('id_country').getValue();
+        if(countryId != '' && product != ''){
+            Ext.Ajax.request({
+                url     : BASE_URL + 'MasterData/c_province/filterProvince',
+                method  : 'POST',
+                params  : {
+                    product         : product,
+                    countryId       : countryId
+                }
+            });
+        }
         comboProvince.setDisabled(false);
     },
 
@@ -528,5 +543,21 @@ Ext.define('ERPh.module.Profile.controller.Employee',{
             params  : { provinceId : provinceId }
         });
         comboRegion.setDisabled(false);
+    },
+
+    loadProvince : function(combo, records, index){
+        var product     = records[0].data.id;
+        var form        = Ext.getCmp('formemployee').getForm();
+        var countryId   = form.findField('id_country').getValue();
+        if(countryId != '' && product != ''){
+            Ext.Ajax.request({
+                url     : BASE_URL + 'MasterData/c_province/filterProvince',
+                method  : 'POST',
+                params  : {
+                    product         : product,
+                    countryId       : countryId
+                }
+            });
+        }
     }
 });

@@ -225,7 +225,7 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                                             flex            : 1,
                                             allowBlank      : false,
                                             msgTarget       : 'under',
-                                            // store           : Ext.create('ERPh.module.Profile.store.gender'),
+                                            store           : Ext.create('ERPh.module.Profile.store.Gender'),
                                             queryMode       : 'local',
                                             displayField    : 'gender',
                                             valueField      : 'id'
@@ -240,9 +240,9 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                                             flex            : 1,
                                             allowBlank      : false,
                                             msgTarget       : 'under', 
-                                            // store           : Ext.create('ERPh.module.MasterData.store.Religion'),
+                                            store           : Ext.create('ERPh.module.Profile.store.Religion'),
                                             queryMode       : 'local',
-                                            displayField    : 'name',
+                                            displayField    : 'religion',
                                             valueField      : 'id'
                                         }                        
                                     ]
@@ -262,21 +262,9 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                                             flex            : 1.3,
                                             allowBlank      : false,
                                             msgTarget       : 'under',
-                                            // store           : Ext.create('ERPh.module.MasterData.store.AllRegion'),
+                                            store           : Ext.create('ERPh.module.MasterData.store.Region'),
                                             displayField    : 'name',
-                                            valueField      : 'name',
-                                            listeners       : {
-                                                buffer  : 100,
-                                                change  : function(){
-                                                    var store = this.store;
-                                                    store.clearFilter();
-                                                    store.filter({
-                                                        property    : 'name',
-                                                        anyMatch    : true,
-                                                        value       : this.getValue()
-                                                    });
-                                                }
-                                            }
+                                            valueField      : 'name'
                                         },
                                         {
                                             xtype       : 'datefield',
@@ -306,7 +294,7 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                                             flex            : 1.3,
                                             allowBlank      : false,
                                             msgTarget       : 'under',
-                                            // store           : Ext.create('ERPh.module.Profile.store.marry'),
+                                            store           : Ext.create('ERPh.module.Profile.store.Marry'),
                                             queryMode       : 'local',
                                             displayField    : 'marry',
                                             valueField      : 'id'
@@ -337,22 +325,10 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                                             flex            : 1.3,
                                             allowBlank      : false,
                                             msgTarget       : 'under',
-                                            // store           : Ext.create('ERPh.module.MasterData.store.Education'),
+                                            store           : Ext.create('ERPh.module.MasterData.store.Education'),
                                             queryMode       : 'local',
                                             displayField    : 'name',
-                                            valueField      : 'id',
-                                            listeners       : {
-                                                buffer  : 100,
-                                                change  : function(){
-                                                    var store = this.store;
-                                                    store.clearFilter();
-                                                    store.filter({
-                                                        property    : 'name',
-                                                        anyMatch    : true,
-                                                        value       : this.getValue()
-                                                    });
-                                                }
-                                            }                                        
+                                            valueField      : 'id'                                       
                                         },
                                         {
                                             xtype           : 'combobox',
@@ -362,7 +338,7 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                                             labelWidth      : 50,
                                             margins         : '2px 2px 2px 2px',
                                             flex            : 0.8,
-                                            // store           : Ext.create('ERPh.module.Profile.store.blood'),
+                                            store           : Ext.create('ERPh.module.Profile.store.Blood'),
                                             queryMode       : 'local',
                                             displayField    : 'blood',
                                             valueField      : 'id'
@@ -416,23 +392,12 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                             xtype           : 'combobox',
                             allowBlank      : false,
                             msgTarget       : 'under',
-                            // store           : Ext.create('ERPh.module.MasterData.store.MinCountry'),
-                            displayField    : 'name',
+                            store           : Ext.create('ERPh.module.MasterData.store.MinCountry'),
+                            displayField    : 'namecountry',
                             valueField      : 'id',
                             editable        : true,
                             margins         : '0px 5px 0px 0px',
-                            listeners       : {
-                                buffer  : 100,
-                                change  : function(){
-                                    var store = this.store;
-                                    store.clearFilter();
-                                    store.filter({
-                                        property    : 'name',
-                                        anyMatch    : true,
-                                        value       : this.getValue()
-                                    });
-                                }
-                            }
+                            action          : 'loadProvince'
                         },
                         {
                             fieldLabel      : 'Province',
@@ -441,27 +406,15 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                             name            : 'id_province',
                             id              : 'id_province',
                             xtype           : 'combobox',
-                            // store           : Ext.create('ERPh.module.MasterData.store.MinProvince'),
-                            displayField    : 'name',
+                            store           : Ext.create('ERPh.module.MasterData.store.FilterProvince'),
+                            displayField    : 'nameprovince',
                             valueField      : 'id',
                             editable        : true,
                             margins         : '0px 5px 0px 0px',
                             disabled        : true,
                             allowBlank      : false,
                             msgTarget       : 'under',
-                            lastQuery       : '',
-                            listeners       : {
-                                buffer  : 100,
-                                change  : function(){
-                                    var store = this.store;
-                                    store.clearFilter();
-                                    store.filter({
-                                        property    : 'name',
-                                        anyMatch    : true,
-                                        value       : this.getValue()
-                                    });
-                                }
-                            }
+                            lastQuery       : ''
                         }
                     ]
                 },
@@ -481,7 +434,7 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                             tooltip         : 'Select City / Region',
                             name            : 'id_region',
                             id              : 'id_region',
-                            // store           : Ext.create('ERPh.module.MasterData.store.MinRegion'),
+                            // store           : Ext.create('ERPh.module.Profile.store.MinRegion'),
                             displayField    : 'name',
                             valueField      : 'id',
                             xtype           : 'combobox',
@@ -946,7 +899,7 @@ Ext.define('ERPh.module.Profile.view.form.Contact',{
                             tooltip         : 'Select BANK',
                             name            : 'id_bank',
                             xtype           : 'combobox',
-                            // store           : Ext.create('ERPh.module.MasterData.store.Bank'),
+                            // store           : Ext.create('ERPh.module.Profile.store.Bank'),
                             displayField    : 'name',
                             valueField      : 'id', 
                             editable        : true,
