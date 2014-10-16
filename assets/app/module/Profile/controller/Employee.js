@@ -5,6 +5,7 @@ Ext.define('ERPh.module.Profile.controller.Employee',{
 	 init: function() {
         var me = this;
         me.getStore('ERPh.module.Profile.store.Employee').load();
+        
         me.control({
             "gridemployee"                          : {
                itemdblclick: me.edit
@@ -507,7 +508,6 @@ Ext.define('ERPh.module.Profile.controller.Employee',{
         comboProvince.setValue('');
         comboProvince.store.removeAll();
 
-
         // var comboCountry    = Ext.ComponentQuery.query('formemployee #id_country')[0];
         // var countryId       = comboCountry.getValue();
         // console.log(countryId);
@@ -524,9 +524,16 @@ Ext.define('ERPh.module.Profile.controller.Employee',{
                 params  : {
                     product         : product,
                     countryId       : countryId
-                }
+                }//,
+                // success : function(response){
+                //     var data    = Ext.JSON.decode(response.responseText);
+                //     console.log(data);
+                //     form.findField('id_province').setValue(data.id);
+                //     form.findField('nameprovince').setValue(data.nameprovince);
+                // }
             });
         }
+
         comboProvince.setDisabled(false);
     },
 

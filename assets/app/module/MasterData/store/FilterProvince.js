@@ -1,8 +1,8 @@
 Ext.define('ERPh.module.MasterData.store.FilterProvince',{
 	extend 		: 'Ext.data.Store',
-	model 		: 'ERPh.module.MasterData.model.MinProvince',
+	model 		: 'ERPh.module.MasterData.model.FilterProvince',
 	requires 	: [
-		'ERPh.module.MasterData.model.MinProvince'
+		'ERPh.module.MasterData.model.FilterProvince'
 	],
 	autoLoad	: true,
 	autoSync 	: false,

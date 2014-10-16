@@ -107,7 +107,8 @@ class C_province extends CI_Controller{
   		foreach ($result->result() as $key => $value) {
   			$data['data'][]= array(
   				'nameprovince'	=> $value->name,
-  				'id' 			=> $value->id_province
+  				'id' 			=> $value->id_province,
+  				'id_province'	=> $value->id_province
   			);
   		}
   		echo json_encode($data);
@@ -129,5 +130,14 @@ class C_province extends CI_Controller{
 	        );
 	    }
 	    echo json_encode($data);
+		   //  echo json_encode(
+		   //  	array(
+			  //       'id'            => $value->id,
+			  //       'id_country'    => $value->id_country,
+			  //       'code'          => $value->code,         
+			  //       'nameprovince'  => $value->name   
+	    //     	)
+		   //  );
+	    // }
 	}
 }

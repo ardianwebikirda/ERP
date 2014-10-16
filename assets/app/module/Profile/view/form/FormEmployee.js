@@ -397,7 +397,7 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                             valueField      : 'id',
                             editable        : true,
                             margins         : '0px 5px 0px 0px',
-                            action          : 'loadProvince'
+                            // action          : 'loadProvince'
                         },
                         {
                             fieldLabel      : 'Province',
@@ -409,6 +409,7 @@ Ext.define('ERPh.module.Profile.view.form.Biography',{
                             store           : Ext.create('ERPh.module.MasterData.store.FilterProvince'),
                             displayField    : 'nameprovince',
                             valueField      : 'id',
+                            mode            : 'local',
                             editable        : true,
                             margins         : '0px 5px 0px 0px',
                             disabled        : true,
